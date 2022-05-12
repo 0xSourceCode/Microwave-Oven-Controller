@@ -1,3 +1,7 @@
+#include "stdint.h"
+#include "tm4c123gh6pm.h"
+#include "BITCTRL.h"
+
 void port_vInit(unsigned char portname);
 void DIO_vSetPinDir(unsigned char portname, unsigned char pin_number, unsigned char direction);
 void DIO_vSetPortDir(unsigned char portname, unsigned char direction);
