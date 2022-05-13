@@ -334,9 +334,32 @@ void DIO_vEbablePullUp(unsigned char portname, unsigned char pin_number){
 		case 'a':
 			SET_BIT(GPIO_PORTA_PUR_R, pin_number);
 			break;
+		switch(portname){
+		case 'B':
+		case 'b':
+			SET_BIT(GPIO_PORTB_PUR_R, pin_number);
+			break;
+		switch(portname){
+		case 'C':
+		case 'c':
+			SET_BIT(GPIO_PORTC_PUR_R, pin_number);
+			break;
+		switch(portname){
+		case 'D':
+		case 'd':
+			SET_BIT(GPIO_PORTD_PUR_R, pin_number);
+			break;
+		switch(portname){
+		case 'E':
+		case 'e':
+			SET_BIT(GPIO_PORTE_PUR_R, pin_number);
+			break;
+		switch(portname){
+		case 'F':
+		case 'f':
+			SET_BIT(GPIO_PORTF_PUR_R, pin_number);
+			break;
 		}
-	//todo: 
-		// same for all pins ...
 }
 
 
