@@ -206,8 +206,36 @@ void DIO_vWritePort(unsigned char portname, unsigned char data){
 			GPIO_PORTA_DATA_R = data;
 			break;
 		}
-		//todo: 
-		// same for all pins ...
+		switch(portname){
+		case 'B':
+		case 'b':
+			GPIO_PORTB_DATA_R = data;
+			break;
+		}
+		switch(portname){
+		case 'C':
+		case 'c':
+			GPIO_PORTC_DATA_R = data;
+			break;
+		}
+		switch(portname){
+		case 'D':
+		case 'd':
+			GPIO_PORTD_DATA_R = data;
+			break;
+		}
+		switch(portname){
+		case 'E':
+		case 'e':
+			GPIO_PORTE_DATA_R = data;
+			break;
+		}
+		switch(portname){
+		case 'F':
+		case 'f':
+			GPIO_PORTF_DATA_R = data;
+			break;
+		}
 }
 
 
