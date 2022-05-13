@@ -301,8 +301,6 @@ unsigned char DIO_u8ReadPin(unsigned char portname, unsigned char pin_number){
 		case 'f':
 			return (READ_BIT(GPIO_PORTF_DATA_R, pin_number));
 		}
-	
- 
 }
 
 // Read from a port
@@ -311,13 +309,25 @@ unsigned char DIO_u8ReadPort(unsigned char portname){
 		case 'A':
 		case 'a':
 			return  GPIO_PORTA_DATA_R;
+		case 'B':
+		case 'b':
+			return  GPIO_PORTB_DATA_R;
+		case 'C':
+		case 'c':
+			return  GPIO_PORTC_DATA_R;
+		case 'D':
+		case 'd':
+			return  GPIO_PORTD_DATA_R;
+		case 'E':
+		case 'e':
+			return  GPIO_PORTE_DATA_R;
+		case 'F':
+		case 'f':
+			return  GPIO_PORTF_DATA_R;
 		}
-	//todo: 
-		// same for all pins ...
- return 'e';
 }
 
-// Rnable pullup
+// Enable pullup
 void DIO_vEbablePullUp(unsigned char portname, unsigned char pin_number){
 	switch(portname){
 		case 'A':
