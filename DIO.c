@@ -247,8 +247,36 @@ void DIO_vTogglePin(unsigned char portname, unsigned char pin_number){
 			TOG_BIT(GPIO_PORTA_DATA_R, pin_number)
 			break;
 		}
-		//todo: 
-		// same for all pins ...
+		switch(portname){
+		case 'B':
+		case 'b':
+			TOG_BIT(GPIO_PORTB_DATA_R, pin_number)
+			break;
+		}
+		switch(portname){
+		case 'C':
+		case 'c':
+			TOG_BIT(GPIO_PORTC_DATA_R, pin_number)
+			break;
+		}
+		switch(portname){
+		case 'D':
+		case 'd':
+			TOG_BIT(GPIO_PORTDA_DATA_R, pin_number)
+			break;
+		}
+		switch(portname){
+		case 'E':
+		case 'e':
+			TOG_BIT(GPIO_PORTE_DATA_R, pin_number)
+			break;
+		}
+		switch(portname){
+		case 'F':
+		case 'f':
+			TOG_BIT(GPIO_PORTF_DATA_R, pin_number)
+			break;
+		}
 }
 
 // Read from a pin
