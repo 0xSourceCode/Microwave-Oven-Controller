@@ -77,8 +77,37 @@ void DIO_vSetPinDir(unsigned char portname, unsigned char pin_number, unsigned c
 			(direction == 1) ? (SET_BIT(GPIO_PORTA_DIR_R, pin_number)) : (CLEAR_BIT(GPIO_PORTA_DIR_R, pin_number));
 			break;
 		}
-		//todo: 
-		// same for all pins ...
+	switch(portname){
+		case 'B':
+		case 'b':
+			(direction == 1) ? (SET_BIT(GPIO_PORTB_DIR_R, pin_number)) : (CLEAR_BIT(GPIO_PORTB_DIR_R, pin_number));
+			break;
+		}
+	switch(portname){
+		case 'C':
+		case 'c':
+			(direction == 1) ? (SET_BIT(GPIO_PORTC_DIR_R, pin_number)) : (CLEAR_BIT(GPIO_PORTC_DIR_R, pin_number));
+			break;
+		}
+	switch(portname){
+		case 'D':
+		case 'd':
+			(direction == 1) ? (SET_BIT(GPIO_PORTD_DIR_R, pin_number)) : (CLEAR_BIT(GPIO_PORTD_DIR_R, pin_number));
+			break;
+		}
+	switch(portname){
+		case 'E':
+		case 'e':
+			(direction == 1) ? (SET_BIT(GPIO_PORTE_DIR_R, pin_number)) : (CLEAR_BIT(GPIO_PORTE_DIR_R, pin_number));
+			break;
+		}
+	switch(portname){
+		case 'F':
+		case 'f':
+			(direction == 1) ? (SET_BIT(GPIO_PORTF_DIR_R, pin_number)) : (CLEAR_BIT(GPIO_PORTF_DIR_R, pin_number));
+			break;
+		}
+		
 }	
 
 
