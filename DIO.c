@@ -285,10 +285,24 @@ unsigned char DIO_u8ReadPin(unsigned char portname, unsigned char pin_number){
 		case 'A':
 		case 'a':
 			return (READ_BIT(GPIO_PORTA_DATA_R, pin_number));
+		case 'B':
+		case 'b':
+			return (READ_BIT(GPIO_PORTB_DATA_R, pin_number));
+		case 'C':
+		case 'c':
+			return (READ_BIT(GPIO_PORTC_DATA_R, pin_number));
+		case 'D':
+		case 'd':
+			return (READ_BIT(GPIO_PORTD_DATA_R, pin_number));
+		case 'E':
+		case 'e':
+			return (READ_BIT(GPIO_PORTE_DATA_R, pin_number));
+		case 'F':
+		case 'f':
+			return (READ_BIT(GPIO_PORTF_DATA_R, pin_number));
 		}
-	//todo: 
-		// same for all pins ...
- return 'e';
+	
+ 
 }
 
 // Read from a port
