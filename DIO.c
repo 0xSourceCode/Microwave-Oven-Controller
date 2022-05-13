@@ -165,8 +165,37 @@ void DIO_vWritePin(unsigned char portname, unsigned char pin_number, unsigned ch
 			(data == 1) ? (SET_BIT(GPIO_PORTA_DATA_R, pin_number)) : (CLEAR_BIT(GPIO_PORTA_DATA_R, pin_number));
 			break;
 		}
-		//todo: 
-		// same for all pins ...
+	switch(portname){
+		case 'B':
+		case 'b':
+			(data == 1) ? (SET_BIT(GPIO_PORTB_DATA_R, pin_number)) : (CLEAR_BIT(GPIO_PORTB_DATA_R, pin_number));
+			break;
+		}
+	switch(portname){
+		case 'C':
+		case 'c':
+			(data == 1) ? (SET_BIT(GPIO_PORTC_DATA_R, pin_number)) : (CLEAR_BIT(GPIO_PORTC_DATA_R, pin_number));
+			break;
+		}
+	switch(portname){
+		case 'D':
+		case 'd':
+			(data == 1) ? (SET_BIT(GPIO_PORTD_DATA_R, pin_number)) : (CLEAR_BIT(GPIO_PORTD_DATA_R, pin_number));
+			break;
+		}
+	switch(portname){
+		case 'E':
+		case 'e':
+			(data == 1) ? (SET_BIT(GPIO_PORTE_DATA_R, pin_number)) : (CLEAR_BIT(GPIO_PORTE_DATA_R, pin_number));
+			break;
+		}
+	switch(portname){
+		case 'F':
+		case 'f':
+			(data == 1) ? (SET_BIT(GPIO_PORTF_DATA_R, pin_number)) : (CLEAR_BIT(GPIO_PORTF_DATA_R, pin_number));
+			break;
+		}
+		
 }
 
 // write data to a port
