@@ -119,8 +119,42 @@ void DIO_vSetPortDir(unsigned char portname, unsigned char direction){
 			GPIO_PORTA_DIR_R = direction;
 			break;
 		}
-		//todo: 
-		// same for all pins ...
+		switch(portname){
+		case 'B':
+		case 'b':
+			GPIO_PORTB_DIR_R = direction;
+			break;
+		}
+		switch(portname){
+		case 'C':
+		case 'c':
+			GPIO_PORTC_DIR_R = direction;
+			break;
+		}
+		switch(portname){
+		case 'D':
+		case 'd':
+			GPIO_PORTD_DIR_R = direction;
+			break;
+		}
+		switch(portname){
+		case 'E':
+		case 'e':
+			GPIO_PORTE_DIR_R = direction;
+			break;
+		}
+		switch(portname){
+		case 'D':
+		case 'd':
+			GPIO_PORTD_DIR_R = direction;
+			break;
+		}
+		switch(portname){
+		case 'F':
+		case 'f':
+			GPIO_PORTF_DIR_R = direction;
+			break;
+		}
 }	
 
 // write data to a pin
