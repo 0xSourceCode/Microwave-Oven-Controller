@@ -15,8 +15,57 @@ void port_vInit(unsigned char portname){
 			GPIO_PORTA_DEN_R = 0xFF;
 			break;
 		}
-		//todo: 
-		// same for all pins ...
+	switch(portname){
+		case 'B':
+		case 'b':
+			SET_BIT(SYSCTL_RCGCGPIO_R, 1);
+			while((READ_BIT(SYSCTL_PRGPIO_R, 1)) == 0);
+			GPIO_PORTB_LOCK_R = 0x4C4F434B;
+			GPIO_PORTB_CR_R = 0xFF;
+			GPIO_PORTB_DEN_R = 0xFF;
+			break;
+		}
+	switch(portname){
+		case 'C':
+		case 'c':
+			SET_BIT(SYSCTL_RCGCGPIO_R, 2);
+			while((READ_BIT(SYSCTL_PRGPIO_R, 2)) == 0);
+			GPIO_PORTC_LOCK_R = 0x4C4F434B;
+			GPIO_PORTC_CR_R = 0xFF;
+			GPIO_PORTC_DEN_R = 0xFF;
+			break;
+		}
+	switch(portname){
+		case 'D':
+		case 'd':
+			SET_BIT(SYSCTL_RCGCGPIO_R, 3);
+			while((READ_BIT(SYSCTL_PRGPIO_R, 3)) == 0);
+			GPIO_PORTD_LOCK_R = 0x4C4F434B;
+			GPIO_PORTD_CR_R = 0xFF;
+			GPIO_PORTD_DEN_R = 0xFF;
+			break;
+		}
+	switch(portname){
+		case 'E':
+		case 'e':
+			SET_BIT(SYSCTL_RCGCGPIO_R, 4);
+			while((READ_BIT(SYSCTL_PRGPIO_R, 4)) == 0);
+			GPIO_PORTE_LOCK_R = 0x4C4F434B;
+			GPIO_PORTE_CR_R = 0xFF;
+			GPIO_PORTE_DEN_R = 0xFF;
+			break;
+		}
+	switch(portname){
+		case 'F':
+		case 'f':
+			SET_BIT(SYSCTL_RCGCGPIO_R, 5);
+			while((READ_BIT(SYSCTL_PRGPIO_R, 5)) == 0);
+			GPIO_PORTE_LOCK_R = 0x4C4F434B;
+			GPIO_PORTE_CR_R = 0xFF;
+			GPIO_PORTE_DEN_R = 0xFF;
+			break;
+		}
+		
 }
 
 
