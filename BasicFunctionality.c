@@ -15,9 +15,17 @@ void wait_1msec(){
 }
 
 //Wait multiples of 1 second
-void wait_seconds(uint32_t seconds){
+void wait_secs(uint32_t secs){
 	uint32_t i;
-	for(i=0; i<seconds; i++) {
+	for(i=0; i<secs; i++) {
 		wait_1sec();
+	}
+}
+
+//Wait multiples of 1 millisecond
+void wait_millisecs(uint32_t millisecs){
+	uint32_t i;
+	for(i=0; i<millisecs; i++) {
+		wait_1msec();
 	}
 }

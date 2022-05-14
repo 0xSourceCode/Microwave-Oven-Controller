@@ -16,4 +16,5 @@ void DIO_vWriteHighLevel(unsigned char portname, unsigned char data);
 void DIO_vWriteLowLevel(unsigned char portname, unsigned char data);
 void wait_1sec();
 void wait_1msec();
-void wait_seconds(uint32_t seconds);
+void wait_secs(uint32_t secs);
+void wait_millisecs(uint32_t millisecs);
