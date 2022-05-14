@@ -14,8 +14,7 @@ void port_vInit(unsigned char portname){
 			GPIO_PORTA_CR_R = 0xFF;
 			GPIO_PORTA_DEN_R = 0xFF;
 			break;
-		}
-	switch(portname){
+		
 		case 'B':
 		case 'b':
 			SET_BIT(SYSCTL_RCGCGPIO_R, 1);
@@ -24,8 +23,7 @@ void port_vInit(unsigned char portname){
 			GPIO_PORTB_CR_R = 0xFF;
 			GPIO_PORTB_DEN_R = 0xFF;
 			break;
-		}
-	switch(portname){
+		
 		case 'C':
 		case 'c':
 			SET_BIT(SYSCTL_RCGCGPIO_R, 2);
@@ -34,8 +32,7 @@ void port_vInit(unsigned char portname){
 			GPIO_PORTC_CR_R = 0xFF;
 			GPIO_PORTC_DEN_R = 0xFF;
 			break;
-		}
-	switch(portname){
+	
 		case 'D':
 		case 'd':
 			SET_BIT(SYSCTL_RCGCGPIO_R, 3);
@@ -44,8 +41,7 @@ void port_vInit(unsigned char portname){
 			GPIO_PORTD_CR_R = 0xFF;
 			GPIO_PORTD_DEN_R = 0xFF;
 			break;
-		}
-	switch(portname){
+		
 		case 'E':
 		case 'e':
 			SET_BIT(SYSCTL_RCGCGPIO_R, 4);
@@ -54,8 +50,7 @@ void port_vInit(unsigned char portname){
 			GPIO_PORTE_CR_R = 0xFF;
 			GPIO_PORTE_DEN_R = 0xFF;
 			break;
-		}
-	switch(portname){
+		
 		case 'F':
 		case 'f':
 			SET_BIT(SYSCTL_RCGCGPIO_R, 5);
@@ -76,37 +71,30 @@ void DIO_vSetPinDir(unsigned char portname, unsigned char pin_number, unsigned c
 		case 'a':
 			(direction == 1) ? (SET_BIT(GPIO_PORTA_DIR_R, pin_number)) : (CLEAR_BIT(GPIO_PORTA_DIR_R, pin_number));
 			break;
-		}
-	switch(portname){
+		
 		case 'B':
 		case 'b':
 			(direction == 1) ? (SET_BIT(GPIO_PORTB_DIR_R, pin_number)) : (CLEAR_BIT(GPIO_PORTB_DIR_R, pin_number));
 			break;
-		}
-	switch(portname){
+		
 		case 'C':
 		case 'c':
 			(direction == 1) ? (SET_BIT(GPIO_PORTC_DIR_R, pin_number)) : (CLEAR_BIT(GPIO_PORTC_DIR_R, pin_number));
 			break;
-		}
-	switch(portname){
+	
 		case 'D':
 		case 'd':
 			(direction == 1) ? (SET_BIT(GPIO_PORTD_DIR_R, pin_number)) : (CLEAR_BIT(GPIO_PORTD_DIR_R, pin_number));
 			break;
-		}
-	switch(portname){
+		
 		case 'E':
 		case 'e':
 			(direction == 1) ? (SET_BIT(GPIO_PORTE_DIR_R, pin_number)) : (CLEAR_BIT(GPIO_PORTE_DIR_R, pin_number));
-			break;
-		}
-	switch(portname){
+			
 		case 'F':
 		case 'f':
 			(direction == 1) ? (SET_BIT(GPIO_PORTF_DIR_R, pin_number)) : (CLEAR_BIT(GPIO_PORTF_DIR_R, pin_number));
-			break;
-		}
+			
 		
 }	
 
@@ -118,43 +106,37 @@ void DIO_vSetPortDir(unsigned char portname, unsigned char direction){
 		case 'a':
 			GPIO_PORTA_DIR_R = direction;
 			break;
-		}
-		switch(portname){
+		
 		case 'B':
 		case 'b':
 			GPIO_PORTB_DIR_R = direction;
 			break;
-		}
-		switch(portname){
+		
 		case 'C':
 		case 'c':
 			GPIO_PORTC_DIR_R = direction;
 			break;
-		}
-		switch(portname){
+
 		case 'D':
 		case 'd':
 			GPIO_PORTD_DIR_R = direction;
 			break;
-		}
-		switch(portname){
+		
 		case 'E':
 		case 'e':
 			GPIO_PORTE_DIR_R = direction;
 			break;
-		}
-		switch(portname){
+		
 		case 'D':
 		case 'd':
 			GPIO_PORTD_DIR_R = direction;
 			break;
-		}
-		switch(portname){
+		
 		case 'F':
 		case 'f':
 			GPIO_PORTF_DIR_R = direction;
 			break;
-		}
+		
 }	
 
 // write data to a pin
@@ -246,36 +228,31 @@ void DIO_vTogglePin(unsigned char portname, unsigned char pin_number){
 		case 'a':
 			TOG_BIT(GPIO_PORTA_DATA_R, pin_number)
 			break;
-		}
-		switch(portname){
+	
 		case 'B':
 		case 'b':
 			TOG_BIT(GPIO_PORTB_DATA_R, pin_number)
 			break;
-		}
-		switch(portname){
+		
 		case 'C':
 		case 'c':
 			TOG_BIT(GPIO_PORTC_DATA_R, pin_number)
 			break;
-		}
-		switch(portname){
+
 		case 'D':
 		case 'd':
 			TOG_BIT(GPIO_PORTDA_DATA_R, pin_number)
 			break;
-		}
-		switch(portname){
+
 		case 'E':
 		case 'e':
 			TOG_BIT(GPIO_PORTE_DATA_R, pin_number)
 			break;
-		}
-		switch(portname){
+
 		case 'F':
 		case 'f':
 			TOG_BIT(GPIO_PORTF_DATA_R, pin_number)
-			break;
+			
 		}
 }
 
@@ -435,3 +412,4 @@ void DIO_vWriteLowLevel(unsigned char portname, unsigned char data){
 			break;
 		}
 }
+
