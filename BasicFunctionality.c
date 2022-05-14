@@ -3,12 +3,14 @@
 #include "DIO.h"
 
 void wait_1sec(){
-	//To be done
+	NVIC_ST_RELOAD_R = 16000000-1;
+	NVIC_ST_CURRENT_R = 0;
+	while((NVIC_ST_CTRL_R &	 0x00010000) == 0){};
 }
 
 //Wait multiples of 1 second
-void wait(uint16_t seconds){
-	uint16_t i;
+void wait(uint32_t seconds){
+	uint32_t i;
 	for(i=0; i<seconds; i++) {
 		wait_1sec();
 	}
