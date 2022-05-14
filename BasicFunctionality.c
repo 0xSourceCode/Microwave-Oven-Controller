@@ -1,6 +1,6 @@
 #include "tm4c123gh6pm.h"
 #include <stdint.h>
-#include "C:\GITHUB Mircowave Project\DIO.h"
+#include "DIO.h"
 
 void wait_1sec(){
 	NVIC_ST_RELOAD_R = 16000-1;
