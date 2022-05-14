@@ -26,6 +26,6 @@ void wait_secs(uint32_t secs){
 void wait_ms(uint32_t ms){
 	uint32_t i;
 	for(i=0; i<ms; i++) {
-		wait_1msec();
+		wait_1ms();
 	}
 }
