@@ -10,3 +10,10 @@
 #define E 0
 #define RS 1
 #define RW 2
+
+void LCD_vInit(void);
+void LCD_cmd(char cmd);
+void LCD_sendChar(char chr);
+void LCD_sendString(char *string);
+void LCD_clearScreen(void);
+void LCD_moveCursor(char row, char col);

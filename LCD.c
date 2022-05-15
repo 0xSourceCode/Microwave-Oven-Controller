@@ -57,16 +57,16 @@ void LCD_clearScreen(void){
 }
 
 void LCD_moveCursor(char row, char col){
-		char pos = 0;
-		if(row == 1){
-			pos = (0x80)+col-1;			
-		}
-		else if(row == 2) {
-			pos = (0xC0)+col-1;
-		}
-		else {
-			pos = 0x80;
-		}
-		LCD_cmd(pos);
-		wait_ms(1);
+	char pos = 0;
+	if(row == 1){
+		pos = (0x80)+col-1;			
+	}
+	else if(row == 2) {
+		pos = (0xC0)+col-1;
+	}
+	else {
+		pos = 0x80;
+	}
+	LCD_cmd(pos);
+	wait_ms(1);
 }
