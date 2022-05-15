@@ -1,6 +1,7 @@
 #include "tm4c123gh6pm.h"
 #include <stdint.h>
 #include "DIO.h"
+#include "keypad.h"
 
 void keypad_intial(unsigned char portname){
 	port_vInit(portname);

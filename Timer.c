@@ -1,6 +1,7 @@
 #include "tm4c123gh6pm.h"
 #include <stdint.h>
 #include "DIO.h"
+#include "Timer.h"
 
 void wait_1sec(){
 	NVIC_ST_RELOAD_R = 16000000-1;
