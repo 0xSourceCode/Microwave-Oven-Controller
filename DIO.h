@@ -11,7 +11,7 @@ void DIO_vWritePort(unsigned char portname, unsigned char data);
 void DIO_vTogglePin(unsigned char portname, unsigned char pin_number);
 unsigned char DIO_u8ReadPin(unsigned char portname, unsigned char pin_number);
 unsigned char DIO_u8ReadPort(unsigned char portname);
-void DIO_vEbablePullUp(unsigned char portname, unsigned char pin_number);
+void DIO_vEnablePullUp(unsigned char portname, unsigned char pin_number);
 void DIO_vWriteHighLevel(unsigned char portname, unsigned char data);
 void DIO_vWriteLowLevel(unsigned char portname, unsigned char data);
 void wait_1sec();

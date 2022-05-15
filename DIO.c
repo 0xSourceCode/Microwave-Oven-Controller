@@ -307,7 +307,7 @@ unsigned char DIO_u8ReadPort(unsigned char portname){
 }
 
 // Enable pullup
-void DIO_vEbablePullUp(unsigned char portname, unsigned char pin_number){
+void DIO_vEnablePullUp(unsigned char portname, unsigned char pin_number){
 	switch(portname){
 		case 'A':
 		case 'a':
