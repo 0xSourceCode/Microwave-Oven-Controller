@@ -3,6 +3,10 @@
 #include <stdint.h>
 #include "DIO.h"
 #include "keybad.h"
+#include "Timer.h"
+#include "Switch.h"
+#include "LED.h"
+#include "LCD.h"
 
 
 void popcorn(void)
@@ -21,7 +25,7 @@ void popcorn(void)
 
 			}
 		}
-
+}
 	void  Beef, chicken(void)
 	{
 		char button = keypad_read('A')
@@ -53,4 +57,5 @@ void popcorn(void)
 						LCD_sendString(char i)
 							LCD_clearScreen(void);
 						wait_1sec();
+					
 
