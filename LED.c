@@ -3,6 +3,7 @@
 #include "DIO.h"
 
 void LED_vInit(unsigned char portname, unsigned char pin_number){
+	port_vInit(portname);
 	DIO_vSetPinDir(portname, pin_number, 1);
 }
 
