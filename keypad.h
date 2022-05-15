@@ -2,13 +2,5 @@
 #include <stdint.h>
 #include "DIO.h"
 
-void keybad_intial(unsigned char portname);
+void keypad_intial(unsigned char portname);
 unsigned char keypad_read(unsigned char portname);
-
-		
-	
-	
-	
-	
-		
-

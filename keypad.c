@@ -2,13 +2,13 @@
 #include <stdint.h>
 #include "DIO.h"
 
-void keybad_intial(unsigned char portname){
+void keypad_intial(unsigned char portname){
 	port_vInit(portname);
 	DIO_vSetPortDir(portname,0x0F); //Setting pins 0-3 as output and pins 4-7 as input (0:INPUT, 1:OUTPUT)
-  DIO_vEbablePullUp(portname,0x4);
-	DIO_vEbablePullUp(portname,0x5);
-	DIO_vEbablePullUp(portname,0x6);
-	DIO_vEbablePullUp(portname,0x7);
+  DIO_vEnablePullUp(portname,0x4);
+	DIO_vEnablePullUp(portname,0x5);
+	DIO_vEnablePullUp(portname,0x6);
+	DIO_vEnablePullUp(portname,0x7);
 }
 
 unsigned char keypad_read(unsigned char portname){
