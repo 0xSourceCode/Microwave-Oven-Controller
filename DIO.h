@@ -14,7 +14,3 @@ unsigned char DIO_u8ReadPort(unsigned char portname);
 void DIO_vEnablePullUp(unsigned char portname, unsigned char pin_number);
 void DIO_vWriteHighLevel(unsigned char portname, unsigned char data);
 void DIO_vWriteLowLevel(unsigned char portname, unsigned char data);
-void wait_1sec();
-void wait_1ms();
-void wait_secs(uint32_t secs);
-void wait_ms(uint32_t ms);
