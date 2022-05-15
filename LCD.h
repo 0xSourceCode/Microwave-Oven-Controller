@@ -5,8 +5,8 @@
 #define CURSOR_OFF 0x0C
 #define DISPLAY_ON 0x0F
 #define MODE_8BITS 0x38
-#define DATA_PORT 'A'
-#define CTRL_PORT 'B'
+#define DATA_PORT 'B'
+#define CTRL_PORT 'D'
 #define E 0
 #define RS 1
 #define RW 2
