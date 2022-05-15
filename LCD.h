@@ -1,0 +1,12 @@
+#define CLEAR_SCREEN 0x01
+#define RETURN_HOME 0x02
+#define ENTRY_MODE 0x06
+#define CURSOR_ON 0x0E
+#define CURSOR_OFF 0x0C
+#define DISPLAY_ON 0x0F
+#define MODE_8BITS 0x38
+#define DATA_PORT 'A'
+#define CTRL_PORT 'B'
+#define E 0
+#define RS 1
+#define RW 2

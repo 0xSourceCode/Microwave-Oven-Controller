@@ -47,8 +47,8 @@ void port_vInit(unsigned char portname){
 			SET_BIT(SYSCTL_RCGCGPIO_R, 4);
 			while((READ_BIT(SYSCTL_PRGPIO_R, 4)) == 0);
 			GPIO_PORTE_LOCK_R = 0x4C4F434B;
-			GPIO_PORTE_CR_R = 0xFF;
-			GPIO_PORTE_DEN_R = 0xFF;
+			GPIO_PORTE_CR_R = 0x3F;
+			GPIO_PORTE_DEN_R = 0x3F;
 			break;
 		
 		case 'F':
@@ -56,8 +56,8 @@ void port_vInit(unsigned char portname){
 			SET_BIT(SYSCTL_RCGCGPIO_R, 5);
 			while((READ_BIT(SYSCTL_PRGPIO_R, 5)) == 0);
 			GPIO_PORTE_LOCK_R = 0x4C4F434B;
-			GPIO_PORTE_CR_R = 0xFF;
-			GPIO_PORTE_DEN_R = 0xFF;
+			GPIO_PORTE_CR_R = 0x1F;
+			GPIO_PORTE_DEN_R = 0x1F;
 			break;
 		}
 		
