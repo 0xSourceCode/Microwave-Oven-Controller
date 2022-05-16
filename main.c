@@ -7,12 +7,15 @@
 #include "LED.h"
 #include "LCD.h"
 
-#define KeypadPort 'E' 
-
 
 int main(void){
 	
 }
+/**
+	                   -> cooking_time function <-
+
+
+**/
 void cooking_time(void) //not completed 
 	{
 		LCD_vInit();
@@ -40,7 +43,6 @@ void cooking_time(void) //not completed
 				}
 		}
 
-}
 /**
 	                   -> SW3 function <-
 
@@ -63,7 +65,7 @@ then clear the LCD after cooking completes.
 void popcorn(void)
 {
   LCD_vInit();
-	char button = keypad_read(KeypadPort);
+	char button = keypad_read('E');
 		if (button == 'A')
 		{
 			LCD_moveCursor(0,1);
@@ -72,8 +74,6 @@ void popcorn(void)
 
 			uint32_t i;
 			for (i = 1; i < 61; i++) {
-				//char string[2];
-				//sprintf(string, "%d", i);
 				LCD_sendString((char*)i);
 				LCD_clearScreen();
 				wait_1sec();
@@ -90,10 +90,10 @@ then clear the LCD after cooking completes.
 **/
 	void Beef_chicken(void)
 	{
-  LCD_vInit();
+		LCD_vInit();
 		char button = keypad_read('E');
-			if (button == 'B')
-			{
+		
+		if (button == 'B'){
 				LCD_moveCursor(0,1);
 				LCD_sendString("number");
 				LCD_moveCursor(1,1);
