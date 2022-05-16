@@ -44,6 +44,7 @@ void cooking_time(void) //not completed
 }
 void popcorn(void)
 {
+	LCD_vInit();
 	char button = keypad_read('E')
 		if (button == 'A')
 		{
@@ -61,6 +62,7 @@ void popcorn(void)
 }
 	void  Beef, chicken(void)
 	{
+		LCD_vInit();
 		char button = keypad_read('E')
 			if (button == 'B')
 			{
