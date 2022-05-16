@@ -13,6 +13,35 @@ unsigned char button;
 	 switch_vint_pullup('A',2);
 	button = switch_vRead('A',2);
 }
+
+void cooking_time(void) //not completed 
+	{
+		LCD_vInit();
+		unsigned char button;
+		unsigned char button_in;
+		
+		 button = keypad_read('E');
+		if (button == 'D')
+			{
+				LCD_moveCursor(1,1);
+				LCD_sendString("Cooking Time?");
+				LCD_clearScreen();
+				
+				} 
+				switch_vint_pullup('f',1);
+				switch_vint_pullup('f',5);
+				
+				button_in = switch_vRead('f',1);
+				if (button_in == 0x01){
+					LCD_clearScreen();
+				}
+				button_in = switch_vRead('f',5);
+				if(button_in == 0x10){
+				
+				}
+		}
+	
+}
 void popcorn(void)
 {
 	char button = keypad_read('E')
