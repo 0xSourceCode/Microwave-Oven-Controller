@@ -50,6 +50,13 @@ void popcorn(void)
 			}
 		}
 }
+/**
+	                   -> Beef_chicken function <-
+• If A is pushed on the keypad (for popcorn), the LCD should show “Popcorn” and then 
+cook for 1 minute while the remaining cook time counts down (in seconds) on the LCD, 
+then clear the LCD after cooking completes.
+
+**/
 	void Beef_chicken(void)
 	{
 		char button = keypad_read('E');
@@ -78,7 +85,7 @@ void popcorn(void)
 					char deforset_sec = deforset_m * 60;
 
 					for (int i = 1; i < deforset_sec; i++) {
-						LCD_sendString(i)
+						LCD_sendString((char*)i);
 						LCD_clearScreen();
 						wait_1sec();
 					
