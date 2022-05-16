@@ -7,14 +7,33 @@
 #include "LED.h"
 #include "LCD.h"
 
+#define KeypadPort 'E' 
+
+
+int main(void){
+	
+}
+/**
+	                   -> SW3 function <-
+
+
+**/
 void SW3(void){
 unsigned char button;
 	 switch_vint_pullup('A',2);
 	button = switch_vRead('A',2);
 }
+
+/**
+	                   -> POPCORN function <-
+• If A is pushed on the keypad (for popcorn), the LCD should show “Popcorn” and then 
+cook for 1 minute while the remaining cook time counts down (in seconds) on the LCD, 
+then clear the LCD after cooking completes.
+
+**/
 void popcorn(void)
 {
-	char button = keypad_read('E');
+	char button = keypad_read(KeypadPort);
 		if (button == 'A')
 		{
 			LCD_moveCursor(0,1);
@@ -22,9 +41,9 @@ void popcorn(void)
 			LCD_clearScreen();
 			uint32_t i;
 			for (i = 1; i < 61; i++) {
-				char string[2];
-				sprintf(string, "%d", i);
-				LCD_sendString(string);
+				//char string[2];
+				//sprintf(string, "%d", i);
+				LCD_sendString((char*)i);
 				LCD_clearScreen();
 				wait_1sec();
 
