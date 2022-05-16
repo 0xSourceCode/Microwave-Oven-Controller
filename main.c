@@ -11,7 +11,7 @@
 
 void popcorn(void)
 {
-	char button = keypad_read('A')
+	char button = keypad_read('E')
 		if (button == 'A')
 		{
 			LCD_moveCursor(char 0, char 1);
@@ -28,7 +28,7 @@ void popcorn(void)
 }
 	void  Beef, chicken(void)
 	{
-		char button = keypad_read('A')
+		char button = keypad_read('E')
 			if (button == 'B')
 			{
 				LCD_moveCursor(char 0, char 1);
