@@ -18,7 +18,7 @@ void popcorn(void)
 	char button = keypad_read('E')
 		if (button == 'A')
 		{
-			LCD_moveCursor(char 0, char 1);
+			LCD_moveCursor(char 1, char 1);
 			LCD_sendString(char 'Popcorn');
 			LCD_clearScreen(void);
 			uint32_t i;
@@ -35,22 +35,22 @@ void popcorn(void)
 		char button = keypad_read('E')
 			if (button == 'B')
 			{
-				LCD_moveCursor(char 0, char 1);
-				LCD_sendString(char 'number');
 				LCD_moveCursor(char 1, char 1);
+				LCD_sendString(char 'number');
+				LCD_moveCursor(char 2, char 1);
 				LCD_sendString(char 'kilos');
 				char button = keypad_read('A')
 					LCD_clearScreen(void);
 				if (button == '0')
 				{
-					LCD_moveCursor(char 0, char 1)
+					LCD_moveCursor(char 1, char 1)
 						LCD_sendString(char 'Err');
 					wait_secs(uint32_t 2);
 					LCD_clearScreen(void);
 				}
 				else {
 
-					LCD_moveCursor(char 0, char 1);
+					LCD_moveCursor(char 1, char 1);
 					LCD_sendString(char button);
 					wait_secs(uint32_t 2);
 					LCD_clearScreen(void);
