@@ -14,22 +14,24 @@ unsigned char button;
 }
 void popcorn(void)
 {
-	char button = keypad_read('E')
+	char button = keypad_read('E');
 		if (button == 'A')
 		{
-			LCD_moveCursor(char 0, char 1);
-			LCD_sendString(char 'Popcorn');
-			LCD_clearScreen(void);
+			LCD_moveCursor(0,1);
+			LCD_sendString("Popcorn");
+			LCD_clearScreen();
 			uint32_t i;
 			for (i = 1; i < 61; i++) {
-				LCD_sendString(char i)
-					LCD_clearScreen(void);
+				char *string;
+				sprintf(*string, "%d", i);
+				LCD_sendString(string);
+				LCD_clearScreen();
 				wait_1sec();
 
 			}
 		}
 }
-	void  Beef, chicken(void)
+	void Beef_chicken(void)
 	{
 		char button = keypad_read('E')
 			if (button == 'B')
@@ -61,4 +63,7 @@ void popcorn(void)
 							LCD_clearScreen(void);
 						wait_1sec();
 					
-
+					}
+				}
+			}
+		}
