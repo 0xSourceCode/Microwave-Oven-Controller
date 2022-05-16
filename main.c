@@ -24,21 +24,24 @@ unsigned char button;
 	button = switch_vRead('A',2);
 }
 
+
 /**
 	                   -> POPCORN function <-
-• If A is pushed on the keypad (for popcorn), the LCD should show “Popcorn” and then 
+ï¿½ If A is pushed on the keypad (for popcorn), the LCD should show ï¿½Popcornï¿½ and then 
 cook for 1 minute while the remaining cook time counts down (in seconds) on the LCD, 
 then clear the LCD after cooking completes.
 
 **/
 void popcorn(void)
 {
+  LCD_vInit();
 	char button = keypad_read(KeypadPort);
 		if (button == 'A')
 		{
 			LCD_moveCursor(0,1);
 			LCD_sendString("Popcorn");
 			LCD_clearScreen();
+
 			uint32_t i;
 			for (i = 1; i < 61; i++) {
 				//char string[2];
@@ -52,13 +55,14 @@ void popcorn(void)
 }
 /**
 	                   -> Beef_chicken function <-
-• If A is pushed on the keypad (for popcorn), the LCD should show “Popcorn” and then 
+ï¿½ If A is pushed on the keypad (for popcorn), the LCD should show ï¿½Popcornï¿½ and then 
 cook for 1 minute while the remaining cook time counts down (in seconds) on the LCD, 
 then clear the LCD after cooking completes.
 
 **/
 	void Beef_chicken(void)
 	{
+  LCD_vInit();
 		char button = keypad_read('E');
 			if (button == 'B')
 			{
@@ -81,6 +85,7 @@ then clear the LCD after cooking completes.
 					LCD_sendString("button");
 					wait_secs(2);
 					LCD_clearScreen();
+
 					char deforset_m = 0.5 * button;
 					char deforset_sec = deforset_m * 60;
 
