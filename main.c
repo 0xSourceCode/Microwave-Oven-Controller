@@ -22,8 +22,8 @@ void popcorn(void)
 			LCD_clearScreen();
 			uint32_t i;
 			for (i = 1; i < 61; i++) {
-				char *string;
-				sprintf(*string, "%d", i);
+				char string[2];
+				sprintf(string, "%d", i);
 				LCD_sendString(string);
 				LCD_clearScreen();
 				wait_1sec();
@@ -33,34 +33,34 @@ void popcorn(void)
 }
 	void Beef_chicken(void)
 	{
-		char button = keypad_read('E')
+		char button = keypad_read('E');
 			if (button == 'B')
 			{
-				LCD_moveCursor(char 0, char 1);
-				LCD_sendString(char 'number');
-				LCD_moveCursor(char 1, char 1);
-				LCD_sendString(char 'kilos');
-				char button = keypad_read('A')
-					LCD_clearScreen(void);
+				LCD_moveCursor(0,1);
+				LCD_sendString("number");
+				LCD_moveCursor(1,1);
+				LCD_sendString("kilos");
+				char button = keypad_read('A');
+				LCD_clearScreen();
 				if (button == '0')
 				{
-					LCD_moveCursor(char 0, char 1)
-						LCD_sendString(char 'Err');
-					wait_secs(uint32_t 2);
-					LCD_clearScreen(void);
+					LCD_moveCursor(0,1);
+					LCD_sendString("Err");
+					wait_secs(2);
+					LCD_clearScreen();
 				}
 				else {
 
-					LCD_moveCursor(char 0, char 1);
-					LCD_sendString(char button);
-					wait_secs(uint32_t 2);
-					LCD_clearScreen(void);
+					LCD_moveCursor(0,1);
+					LCD_sendString("button");
+					wait_secs(2);
+					LCD_clearScreen();
 					char deforset_m = 0.5 * button;
 					char deforset_sec = deforset_m * 60;
 
-					for (i = 1; i < deforset_sec; i++) {
-						LCD_sendString(char i)
-							LCD_clearScreen(void);
+					for (int i = 1; i < deforset_sec; i++) {
+						LCD_sendString(i)
+						LCD_clearScreen();
 						wait_1sec();
 					
 					}
