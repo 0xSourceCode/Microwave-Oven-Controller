@@ -13,7 +13,14 @@ int main(void){
 }
 /**
 	                   -> cooking_time function <-
-
+If D is pushed on the keypad, the words “Cooking Time?” should appear on the LCD. 
+After that the user can enter a value between 1 and 30 to indicate the cooking time 
+required in minutes and seconds. This value is displayed on the LCD as it is entered, right 
+to left. 
+For example, pressing 1 displays 00:01, then pressing 2 displays 00:12, then pressing 4 
+displays 01:24, then pressing 5 displays 12:45. Press push button SW1 to clear the LCD 
+display and press SW2 to start cooking and counting down (in seconds) the cooking time 
+on the LCD
 
 **/
 void cooking_time(void) //not completed 
@@ -45,15 +52,32 @@ void cooking_time(void) //not completed
 
 /**
 	                   -> SW3 function <-
-
-
+ Switch SW3 (external push button), position 1, will simulate the microwave oven door 
+latch, where the switch being down would be simulating the open-door situation and the 
+switch being up would be simulating the door closed situation. Only when the latch is 
+closed should the oven be able to be started.
+o When SW2 is pressed, the oven starts operation.
+o When SW1 (external push button) is pressed for first time, the oven operation 
+pauses (keeping remaining time on the display).
+o When SW1 is pushed for second time after pressing it for first time, the time is 
+cleared and the cooking stops.
+o If SW2 is pushed after the oven is paused and the door is closed, then cooking 
+must resume from the time it was paused.
+• If it is cooking, opening the door should pause the cooking and keep the remaining time 
+on display.
+• When the microwave is running, the array of LEDs should be on. When it is stopped, 
+they should go off. If paused, the array of LEDs should blink (wait time on and wait time 
+off) till the cooking is resumed or stopped.
+When the microwave completes its function and timer has counted down to zero (regular 
+timed cooking or defrosting), the array of LEDs should flash 3 times (wait time on and 
+wait time off), and the buzzer should produce an audible tone/alarm during these 3 
+second times periods.
 **/
 void SW3(void){
 unsigned char button;
 	 switch_vint_pullup('A',2);
 	button = switch_vRead('A',2);
 }
-
 
 /**
 	                   -> POPCORN function <-
