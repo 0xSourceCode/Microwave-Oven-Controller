@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 #include "tm4c123gh6pm.h"
 #include <stdint.h>
 #include "DIO.h"
-#include "keybad.h"
+#include "keypad.h"
 #include "Timer.h"
 #include "Switch.h"
 #include "LED.h"
