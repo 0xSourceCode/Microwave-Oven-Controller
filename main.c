@@ -8,7 +8,11 @@
 #include "LED.h"
 #include "LCD.h"
 
-
+void SW3(void){
+unsigned char button;
+	 switch_vint_pullup('A',2);
+	button = switch_vRead('A',2);
+}
 void popcorn(void)
 {
 	char button = keypad_read('E')
