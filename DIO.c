@@ -12,6 +12,9 @@ void port_vInit(unsigned char portname){
 			while((READ_BIT(SYSCTL_PRGPIO_R, 0)) == 0);
 			GPIO_PORTA_LOCK_R = 0x4C4F434B;
 			GPIO_PORTA_CR_R = 0xFF;
+			GPIO_PORTA_AMSEL_R = 0x00;
+			GPIO_PORTA_PCTL_R = 0x00000000;
+			GPIO_PORTA_AFSEL_R = 0x00;
 			GPIO_PORTA_DEN_R = 0xFF;
 			break;
 		
@@ -21,6 +24,9 @@ void port_vInit(unsigned char portname){
 			while((READ_BIT(SYSCTL_PRGPIO_R, 1)) == 0);
 			GPIO_PORTB_LOCK_R = 0x4C4F434B;
 			GPIO_PORTB_CR_R = 0xFF;
+			GPIO_PORTB_AMSEL_R = 0x00;
+			GPIO_PORTB_PCTL_R = 0x00000000;
+			GPIO_PORTB_AFSEL_R = 0x00;
 			GPIO_PORTB_DEN_R = 0xFF;
 			break;
 		
@@ -30,6 +36,9 @@ void port_vInit(unsigned char portname){
 			while((READ_BIT(SYSCTL_PRGPIO_R, 2)) == 0);
 			GPIO_PORTC_LOCK_R = 0x4C4F434B;
 			GPIO_PORTC_CR_R = 0xFF;
+			GPIO_PORTC_AMSEL_R = 0x00;
+			GPIO_PORTC_PCTL_R = 0x00000000;
+			GPIO_PORTC_AFSEL_R = 0x00;
 			GPIO_PORTC_DEN_R = 0xFF;
 			break;
 	
@@ -39,6 +48,9 @@ void port_vInit(unsigned char portname){
 			while((READ_BIT(SYSCTL_PRGPIO_R, 3)) == 0);
 			GPIO_PORTD_LOCK_R = 0x4C4F434B;
 			GPIO_PORTD_CR_R = 0xFF;
+			GPIO_PORTD_AMSEL_R = 0x00;
+			GPIO_PORTD_PCTL_R = 0x00000000;
+			GPIO_PORTD_AFSEL_R = 0x00;
 			GPIO_PORTD_DEN_R = 0xFF;
 			break;
 		
@@ -48,6 +60,9 @@ void port_vInit(unsigned char portname){
 			while((READ_BIT(SYSCTL_PRGPIO_R, 4)) == 0);
 			GPIO_PORTE_LOCK_R = 0x4C4F434B;
 			GPIO_PORTE_CR_R = 0x3F;
+			GPIO_PORTE_AMSEL_R = 0x00;
+			GPIO_PORTE_PCTL_R = 0x00000000;
+			GPIO_PORTE_AFSEL_R = 0x00;
 			GPIO_PORTE_DEN_R = 0x3F;
 			break;
 		
@@ -55,9 +70,12 @@ void port_vInit(unsigned char portname){
 		case 'f':
 			SET_BIT(SYSCTL_RCGCGPIO_R, 5);
 			while((READ_BIT(SYSCTL_PRGPIO_R, 5)) == 0);
-			GPIO_PORTE_LOCK_R = 0x4C4F434B;
-			GPIO_PORTE_CR_R = 0x1F;
-			GPIO_PORTE_DEN_R = 0x1F;
+			GPIO_PORTF_LOCK_R = 0x4C4F434B;
+			GPIO_PORTF_CR_R = 0x1F;
+			GPIO_PORTF_AMSEL_R = 0x00;
+			GPIO_PORTF_PCTL_R = 0x00000000;
+			GPIO_PORTF_AFSEL_R = 0x00;
+			GPIO_PORTF_DEN_R = 0x1F;
 			break;
 		}
 		
@@ -176,32 +194,27 @@ void DIO_vWritePort(unsigned char portname, unsigned char data){
 		case 'a':
 			GPIO_PORTA_DATA_R = data;
 			break;
-		}
-		switch(portname){
+
 		case 'B':
 		case 'b':
 			GPIO_PORTB_DATA_R = data;
 			break;
-		}
-		switch(portname){
+
 		case 'C':
 		case 'c':
 			GPIO_PORTC_DATA_R = data;
 			break;
-		}
-		switch(portname){
+
 		case 'D':
 		case 'd':
 			GPIO_PORTD_DATA_R = data;
 			break;
-		}
-		switch(portname){
+
 		case 'E':
 		case 'e':
 			GPIO_PORTE_DATA_R = data;
 			break;
-		}
-		switch(portname){
+
 		case 'F':
 		case 'f':
 			GPIO_PORTF_DATA_R = data;

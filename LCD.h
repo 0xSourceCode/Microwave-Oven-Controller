@@ -6,10 +6,10 @@
 #define DISPLAY_ON 0x0F
 #define MODE_8BITS 0x38
 #define DATA_PORT 'B'
-#define CTRL_PORT 'D'
-#define E 0
-#define RS 1
-#define RW 2
+#define CTRL_PORT 'A'
+#define E 3
+#define RS 4
+#define RW 5
 
 void LCD_vInit(void);
 void LCD_cmd(char cmd);

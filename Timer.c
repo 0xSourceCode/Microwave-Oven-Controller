@@ -2,15 +2,20 @@
 #include <stdint.h>
 #include "DIO.h"
 #include "Timer.h"
-
+void timerInit(){
+	NVIC_ST_CTRL_R = 0;
+	NVIC_ST_RELOAD_R = 0x00FFFFFF;
+	NVIC_ST_CURRENT_R = 0;
+	NVIC_ST_CTRL_R = 0x00000005;
+}
 void wait_1sec(){
-	NVIC_ST_RELOAD_R = 16000000-1;
+	NVIC_ST_RELOAD_R = 80000000-1;
 	NVIC_ST_CURRENT_R = 0;
 	while((NVIC_ST_CTRL_R &	 0x00010000) == 0){};
 }
 
 void wait_1ms(){
-	NVIC_ST_RELOAD_R = 16000-1;
+	NVIC_ST_RELOAD_R = 80000-1;
 	NVIC_ST_CURRENT_R = 0;
 	while((NVIC_ST_CTRL_R &	 0x00010000) == 0){};
 }
