@@ -7,9 +7,9 @@
 #define MODE_8BITS 0x38
 #define DATA_PORT 'B'
 #define CTRL_PORT 'A'
-#define E 3
-#define RS 4
-#define RW 5
+#define E 5
+#define RS 6
+#define RW 7
 
 void LCD_vInit(void);
 void LCD_cmd(char cmd);

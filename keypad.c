@@ -2,28 +2,31 @@
 #include <stdint.h>
 #include "DIO.h"
 #include "keypad.h"
-// input -> c4, c5, c6, c7
-//output -> d0, d1, d2, d3
+#include "Timer.h"
+
+// input -> E0, E1, E2, E3
+//output -> D0, D1, D2, D3
 
 
-void keypad_intial(void){
+void keypad_intial(){
 	//init. the input for the keypad
-	port_vInit('C');
-	DIO_vSetPinDir('C', 4, 0);
-	DIO_vSetPinDir('C', 5, 0);
-	DIO_vSetPinDir('C', 6, 0);
-	DIO_vSetPinDir('C', 7, 0);
-  DIO_vEnablePullUp('C',0x4);
-	DIO_vEnablePullUp('C',0x5);
-	DIO_vEnablePullUp('C',0x6);
-	DIO_vEnablePullUp('C',0x7);
+	port_vInit('E');
+	DIO_vSetPortDir('E', 0x20);
+	DIO_vSetPinDir('E', 0, 0);
+	DIO_vSetPinDir('E', 1, 0);
+	DIO_vSetPinDir('E', 2, 0);
+	DIO_vSetPinDir('E', 3, 0);
+	DIO_vEnablePullUp('E',0);
+	DIO_vEnablePullUp('E',1);
+	DIO_vEnablePullUp('E',2);
+	DIO_vEnablePullUp('E',3);
 	
 	//init the output for the keypad
-	port_vInit('D');
-	DIO_vSetPinDir('D', 0, 1);
-	DIO_vSetPinDir('D', 1, 1);
-	DIO_vSetPinDir('D', 2, 1);
-	DIO_vSetPinDir('D', 3, 1);
+	port_vInit('C');
+	DIO_vSetPinDir('C', 4, 1);
+	DIO_vSetPinDir('C', 5, 1);
+	DIO_vSetPinDir('C', 6, 1);
+	DIO_vSetPinDir('C', 7, 1);
 }
 
 
@@ -32,15 +35,19 @@ unsigned char keypad_read(){
 	char row, col, x;
 	char Returnvalue = 0xFF;
 	for(row=0; row<4; row++){
-		DIO_vWriteLowLevel('D', 0xFF); //Set output pins
-		DIO_vWritePin('c', row, 0);
+		DIO_vWriteHighLevel('C', 0xF); //set the output pins (default values)
+		DIO_vWritePin('C', row, 0); //write to the input
 		for(col=0;col<4;col++){
-			x = DIO_u8ReadPin('D', col);
+			x = DIO_u8ReadPin('E', col+4);
 			if(x==0){ 
 				Returnvalue = k[row][col];
-			  break;
+				break;
 			}
 		}
-		return Returnvalue;
+		if(x==0){
+				break;
+		}
 	}
+	
+	return Returnvalue;
 }

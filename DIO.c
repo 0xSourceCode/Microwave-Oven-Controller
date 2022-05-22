@@ -61,8 +61,8 @@ void port_vInit(unsigned char portname){
 			GPIO_PORTE_LOCK_R = 0x4C4F434B;
 			GPIO_PORTE_CR_R = 0x3F;
 			GPIO_PORTE_AMSEL_R = 0x00;
-			GPIO_PORTE_PCTL_R = 0x00000000;
 			GPIO_PORTE_AFSEL_R = 0x00;
+			GPIO_PORTE_PCTL_R = 0x000000;
 			GPIO_PORTE_DEN_R = 0x3F;
 			break;
 		

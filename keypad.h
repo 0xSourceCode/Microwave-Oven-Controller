@@ -2,5 +2,5 @@
 #include <stdint.h>
 #include "DIO.h"
 
-void keypad_intial(void);
+void keypad_intial();
 unsigned char keypad_read();
