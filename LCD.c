@@ -45,7 +45,7 @@ void LCD_sendChar(char chr){
 }
 
 void LCD_sendString(char *string){
-	while((*string) != '0'){
+	while((*string) != '\0'){
 		LCD_sendChar((*string));
 		string++;
 	}
