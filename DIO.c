@@ -62,7 +62,7 @@ void port_vInit(unsigned char portname){
 			GPIO_PORTE_CR_R = 0x3F;
 			GPIO_PORTE_AMSEL_R = 0x00;
 			GPIO_PORTE_AFSEL_R = 0x00;
-			GPIO_PORTE_PCTL_R = 0x000000;
+			//GPIO_PORTE_PCTL_R = 0x000000;
 			GPIO_PORTE_DEN_R = 0x3F;
 			break;
 		
@@ -287,7 +287,6 @@ unsigned char DIO_u8ReadPin(unsigned char portname, unsigned char pin_number){
 			break;
 		}
 }
-
 
 // Read from a port
 unsigned char DIO_u8ReadPort(unsigned char portname){

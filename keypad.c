@@ -3,49 +3,52 @@
 #include "DIO.h"
 #include "keypad.h"
 #include "Timer.h"
-
-// input -> E0, E1, E2, E3
-//output -> D0, D1, D2, D3
+#include <TM4C123.h>
+//Output  -> E0(ROW 0), E1(ROW 1), E2(ROW 2), E3(ROW 3)
+//Input -> A2(COL 0), A3(COL 1), A4(COL 2), A5(COL 3)
 
 
 void keypad_intial(){
-	//init. the input for the keypad
-	port_vInit('E');
-	DIO_vSetPortDir('E', 0x20);
-	DIO_vSetPinDir('E', 0, 0);
-	DIO_vSetPinDir('E', 1, 0);
-	DIO_vSetPinDir('E', 2, 0);
-	DIO_vSetPinDir('E', 3, 0);
-	DIO_vEnablePullUp('E',0);
-	DIO_vEnablePullUp('E',1);
-	DIO_vEnablePullUp('E',2);
-	DIO_vEnablePullUp('E',3);
+	//init. the input
+	port_vInit('A');
+	DIO_vSetPortDir('A', 0x3C); //0011 1100
+	DIO_vSetPinDir('A', 2, 0);
+	DIO_vSetPinDir('A', 3, 0);
+	DIO_vSetPinDir('A', 4, 0);
+	DIO_vSetPinDir('A', 5, 0);
+
+	GPIO_PORTA_PUR_R = 0x3C;
 	
-	//init the output for the keypad
-	port_vInit('C');
-	DIO_vSetPinDir('C', 4, 1);
-	DIO_vSetPinDir('C', 5, 1);
-	DIO_vSetPinDir('C', 6, 1);
-	DIO_vSetPinDir('C', 7, 1);
+	//init the output
+	port_vInit('E');
+	DIO_vSetPinDir('E', 0, 1);
+	DIO_vSetPinDir('E', 1, 1);
+	DIO_vSetPinDir('E', 2, 1);
+	DIO_vSetPinDir('E', 3, 1);
 }
 
 
 unsigned char keypad_read(){
-	unsigned char k [4][4]={{'1','2','3','A'},{'4','5','6','B'},{'7','8','9','c'},{'*','0','#','D'}};
+	
+	unsigned char k [4][4]={{'1','2','3','A'},{'4','5','6','B'},{'7','8','9','C'},{'*','0','#','D'}};
 	char row, col, x;
 	char Returnvalue = 0xFF;
+	
 	for(row=0; row<4; row++){
-		DIO_vWriteHighLevel('C', 0xF); //set the output pins (default values)
-		DIO_vWritePin('C', row, 0); //write to the input
+		
+		DIO_vWritePort('E', 0x0F); //Set default value 0000 1111
+		GPIO_PORTE_DATA_R &= ~(1<<row);
+		
 		for(col=0;col<4;col++){
-			x = DIO_u8ReadPin('E', col+4);
+			DIO_vWritePort('A', 0x3C); //set input pins (default values)
+			x = DIO_u8ReadPin('A', col+2);
 			if(x==0){ 
 				Returnvalue = k[row][col];
 				break;
 			}
 		}
 		if(x==0){
-				break;
+			break;
 		}
 	}
 	
