@@ -18,6 +18,7 @@
 #define S3Pin 7
 
 
+
 void popcorn (void);
 void Beef(void);
 void chicken(void);
@@ -29,7 +30,6 @@ int main(void){
 	}
 }
 
-
 /**
 	                   -> POPCORN function <-
 � If A is pushed on the keypad (for popcorn), the LCD should show �Popcorn� and then 
@@ -39,6 +39,7 @@ then clear the LCD after cooking completes.
 **/
 void popcorn(void)
 {
+
 	LCD_moveCursor(0,1);
 	LCD_sendString("Popcorn");
 	LCD_clearScreen();
@@ -78,6 +79,7 @@ then clear the LCD after cooking completes.
 			LCD_sendString("button");
 			wait_secs(2);
 			LCD_clearScreen();
+
 
 			char deforset_m = 0.5 * button;
 			char deforset_sec = deforset_m * 60;
@@ -138,6 +140,7 @@ display and press SW2 to start cooking and counting down (in seconds) the cookin
 on the LCD
 
 **/
+
 void cooking_time(void) {
 	LCD_vInit();
 	unsigned char button;
