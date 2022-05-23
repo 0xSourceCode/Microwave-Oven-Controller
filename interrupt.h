@@ -1,1 +1,3 @@
-void SwInterruptInit(unsigned char portname, unsigned char pin_number);
+void SW1_interrupt();
+void SW2_interrupt();
+void SW3_interrupt();
