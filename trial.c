@@ -102,6 +102,40 @@ void Beef(void)
 	//--------------------------------------------------------------------------------
 		
 	// cooking time func -------------------------------------------------------------------
+void cooking_time(void)// not completed
+	{
+		
+		int button_m = keypad_read();
+		int button_sec = button_m *60;
+		char k = switch_vRead('f',4);
+		int j;
+		int m,s;
+		LCD_vInit();
+		LCD_moveCursor(1,1);
+		LCD_sendString("Cooking Time?");
+		LCD_clearScreen();
+		for(j=4 ;j>0;j--){ 
+		LCD_moveCursor(1,j);
+		LCD_sendString((char*)button_m);
+			if (button_m > 30)
+				LCD_sendString("error");
+		}
+		if(k==0)
+      {
+            if(m<=30 &m !=0)
+            {
+               if(s<60 & s !=0)
+               {
+                  s-=1;
+                  wait_secs(1);
+
+                  }
+							 else {
+								m-=1;
+								wait_secs(60);							 
+							 }
+
+	}	
 	
 	
 	//------------------------------------------------------------------------------------------
