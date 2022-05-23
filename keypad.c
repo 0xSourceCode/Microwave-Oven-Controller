@@ -3,7 +3,6 @@
 #include "DIO.h"
 #include "keypad.h"
 #include "Timer.h"
-#include <TM4C123.h>
 //Output  -> E0(ROW 0), E1(ROW 1), E2(ROW 2), E3(ROW 3)
 //Input -> A2(COL 0), A3(COL 1), A4(COL 2), A5(COL 3)
 
