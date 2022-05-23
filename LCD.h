@@ -17,3 +17,4 @@ void LCD_sendChar(char chr);
 void LCD_sendString(char *string);
 void LCD_clearScreen(void);
 void LCD_moveCursor(char row, char col);
+void tostring(char str[], int num);

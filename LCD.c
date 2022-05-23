@@ -1,9 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <stdint.h>
 #include "DIO.h"
 #include "Timer.h"
 #include "tm4c123gh6pm.h"
 #include "LED.h"
 #include "LCD.h"
+#include <math.h>
 void LCD_cmd(char cmd);
 
 void LCD_vInit(void){
@@ -70,3 +74,20 @@ void LCD_moveCursor(char row, char col){
 	LCD_cmd(pos);
 	wait_ms(1);
 }
+
+void tostring(char str[], int num){
+    int i, rem, len = 0, n;
+
+    n = num;
+    while (n != 0){
+        len++;
+        n /= 10;
+    }
+    for (i = 0; i < len; i++){
+        rem = num % 10;
+        num = num / 10;
+        str[len - (i + 1)] = rem + '0';
+    }
+    str[len] = '\0';
+}
+
