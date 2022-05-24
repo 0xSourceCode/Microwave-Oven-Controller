@@ -13,13 +13,19 @@
 #include "cookingModes.h"
 
 int main(){
+	
 	char button;
 	timerInit();
 	LCD_vInit();
 	keypad_intial();
-	port_vInit('F');
+	
+	port_vInit('F'); //Initialize SW1
 	DIO_vSetPortDir('F', 0x0E);
 	GPIO_PORTF_PUR_R = 0x11;
+	
+	port_vInit('D'); //Initialize Buzzer and LED port
+	DIO_vSetPinDir('D', 7, 1); //PD7 for Buzzer
+	DIO_vSetPinDir('D', 6, 1); //PD6 for external LED
 	
 	while(1){
 		if(keypad_read() != 0xFF) {
@@ -28,18 +34,19 @@ int main(){
 			switch(button){
 				case 'A':
 					Popcorn();
+					break;
 				case 'B':
 					Beef();
+					break;
 				case 'C':
 					Chicken();
+					break;
 				case 'D':
 					CookingTime();
+					break;
 			}
 		}
-	
 	}
-	
-	
 }
 
 void SystemInit(){

@@ -10,7 +10,7 @@
 #include "LCD.h"
 #include "cookingModes.h"
 #include "keypad.h"
-
+static void LEDxBuzzer();
 static int isAllowed(unsigned char c);
 static int isAllowed1(unsigned char c);
 
@@ -21,16 +21,15 @@ void Popcorn(void){
 	wait_secs(2);
 	LCD_clearScreen();
 	
-	//Set LED ON
-	for(i = 60; i > -1; i--){
+	DIO_vWritePin('D', 6, 1); //LED is ON
+	for(i = 10; i > -1; i--){
 		tostring(buffer, i);
 		LCD_sendString(buffer);
 		wait_secs(1);
 		wait_ms(40);
 		LCD_clearScreen();
 	}
-	//Set LED OFF
-	//Set Buzzer
+	LEDxBuzzer(); //LED and Buzzer action
 }
 
 void Beef(void){
@@ -55,6 +54,7 @@ void Beef(void){
 			weight = button - '0';
 			deforset_sec = weight * 30;
 			
+			DIO_vWritePin('D', 6, 1); //LED is ON
 			for(i = deforset_sec; i > -1; i--){
 				tostring(buffer, i);
 				LCD_sendString(buffer);
@@ -62,6 +62,7 @@ void Beef(void){
 				wait_ms(40);
 				LCD_clearScreen();
 			}
+			LEDxBuzzer(); //LED and Buzzer action
 			break;
 		}
 		else if(isAllowed(keypad_read()) == 0 && keypad_read() != 0xFF){
@@ -102,6 +103,7 @@ void Chicken(void){
 			weight = button - '0';
 			deforset_sec = weight * 12;
 			
+			DIO_vWritePin('D', 6, 1); //LED is ON
 			for(i = deforset_sec; i > -1; i--){
 				tostring(buffer, i);
 				LCD_sendString(buffer);
@@ -109,6 +111,7 @@ void Chicken(void){
 				wait_ms(40);
 				LCD_clearScreen();
 			}
+			LEDxBuzzer(); //LED and Buzzer action
 			break;
 		}
 		else if(isAllowed(keypad_read()) == 0 && keypad_read() != 0xFF){
@@ -182,7 +185,7 @@ void CookingTime(void){
 			
 			DYNAMIC_CURSOR--;
 			counter++;
-			wait_ms(250);
+			wait_ms(100);
 		}
 	}
 	
@@ -197,10 +200,11 @@ void CookingTime(void){
 			//If SW2 is pressed
 			
 			LCD_clearScreen();
-			LCD_sendString("Start timer");
+			LCD_sendString("Start cooking");
 			wait_secs(2);
 			LCD_clearScreen();
 			
+			DIO_vWritePin('D', 6, 1); //LED is ON
 			for(i = totalTime; i > -1; i--){
 				tostring(buffer, i);
 				LCD_sendString(buffer);
@@ -208,6 +212,7 @@ void CookingTime(void){
 				wait_ms(40);
 				LCD_clearScreen();
 			}
+			LEDxBuzzer(); //LED and Buzzer action
 			break;
 		}
 		else if(DIO_u8ReadPin('F', 4) == 0){
@@ -251,4 +256,24 @@ static int isAllowed1(unsigned char c){
         }
     }
 		return check;
+}
+
+static void LEDxBuzzer(){
+	DIO_vWritePin('D', 7, 1); //Buzzer ON
+	
+	DIO_vWritePin('D', 6, 0); //LED is OFF
+	wait_ms(150);
+	DIO_vWritePin('D', 6, 1); //LED is ON
+	wait_ms(150);
+	DIO_vWritePin('D', 6, 0); //LED is OFF
+	wait_ms(150);
+	DIO_vWritePin('D', 6, 1); //LED is ON
+	wait_ms(150);
+	DIO_vWritePin('D', 6, 0); //LED is OFF
+	wait_ms(150);
+	DIO_vWritePin('D', 6, 1); //LED is ON
+	wait_ms(150);
+	DIO_vWritePin('D', 6, 0); //LED is OFF
+	
+	DIO_vWritePin('D', 7, 0); //Buzzer OFF
 }
