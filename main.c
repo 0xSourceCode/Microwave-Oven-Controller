@@ -13,7 +13,7 @@
 #include "cookingModes.h"
 
 
-#define S3prot 'D'
+#define S3port 'D'
 #define S3pin 7
 
 int main(){
@@ -32,12 +32,12 @@ int main(){
 	DIO_vSetPinDir('D', 6, 1); //PD6 for external LED
 
 	checkDoor:
-		while(DIO_u8ReadPin(S3prot, S3pin) == 0){}
+		while(DIO_u8ReadPin(S3port, S3pin) == 0){}
 		goto doorIsClosed;
 
 
 	while(1){
-		if(DIO_u8ReadPin(S3prot, S3pin) == 0){
+		if(DIO_u8ReadPin(S3port, S3pin) == 0){
 			goto checkDoor;
 		}
 		doorIsClosed:
