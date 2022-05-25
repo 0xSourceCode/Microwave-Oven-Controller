@@ -259,7 +259,7 @@ static int isAllowed1(unsigned char c){
 }
 
 static void LEDxBuzzer(){
-	DIO_vWritePin('D', 7, 1); //Buzzer ON
+	DIO_vWritePin('D', 3, 1); //Buzzer ON
 	
 	DIO_vWritePin('D', 6, 0); //LED is OFF
 	wait_ms(150);
@@ -275,5 +275,5 @@ static void LEDxBuzzer(){
 	wait_ms(150);
 	DIO_vWritePin('D', 6, 0); //LED is OFF
 	
-	DIO_vWritePin('D', 7, 0); //Buzzer OFF
+	DIO_vWritePin('D', 3, 0); //Buzzer OFF
 }

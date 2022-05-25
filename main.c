@@ -24,7 +24,7 @@ int main(){
 	GPIO_PORTF_PUR_R = 0x11;
 	
 	port_vInit('D'); //Initialize Buzzer and LED port
-	DIO_vSetPinDir('D', 7, 1); //PD7 for Buzzer
+	DIO_vSetPinDir('D', 3, 1); //PD7 for Buzzer
 	DIO_vSetPinDir('D', 6, 1); //PD6 for external LED
 	
 	while(1){
