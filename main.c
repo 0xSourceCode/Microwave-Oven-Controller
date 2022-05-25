@@ -28,20 +28,18 @@ int main(){
 	GPIO_PORTF_PUR_R = 0x11;
 
 	port_vInit('D'); //Initialize Buzzer and LED port
-	DIO_vSetPinDir('D', 7, 1); //PD7 for Buzzer
+	DIO_vSetPinDir('D', 3, 1); //PD3 for Buzzer
 	DIO_vSetPinDir('D', 6, 1); //PD6 for external LED
-
-	checkDoor:
-		while(DIO_u8ReadPin(S3port, S3pin) == 0){}
-		goto doorIsClosed;
-
-
+	DIO_vSetPinDir('D', 7, 0); //PD7 for external Switch
+	DIO_vEnablePullUp('D', 7);
+		
 	while(1){
-		if(DIO_u8ReadPin(S3port, S3pin) == 0){
-			goto checkDoor;
-		}
-		doorIsClosed:
-			if(keypad_read() != 0xFF) {
+			
+			if((DIO_u8ReadPin('D', 7) == 0)){
+				while(DIO_u8ReadPin('D', 7) == 0){}
+			}
+			
+			else if(keypad_read() != 0xFF) {
 				button = keypad_read();
 
 				switch(button){
@@ -59,8 +57,10 @@ int main(){
 						break;
 				}
 			}
+			
 		}
 }
+
 
 void SystemInit(){
 	main();

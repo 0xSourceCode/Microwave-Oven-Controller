@@ -22,11 +22,14 @@ void Popcorn(void){
 	LCD_clearScreen();
 	
 	DIO_vWritePin('D', 6, 1); //LED is ON
-	for(i = 10; i > -1; i--){
+	for(i = 60; i > -1; i--){
 		tostring(buffer, i);
 		LCD_sendString(buffer);
 		wait_secs(1);
 		wait_ms(40);
+		while(DIO_u8ReadPin('D', 7) == 0){
+					wait_secs(1);
+		}
 		LCD_clearScreen();
 	}
 	LEDxBuzzer(); //LED and Buzzer action
@@ -60,6 +63,9 @@ void Beef(void){
 				LCD_sendString(buffer);
 				wait_secs(1);
 				wait_ms(40);
+				while(DIO_u8ReadPin('D', 7) == 0){
+					wait_secs(1);
+				}
 				LCD_clearScreen();
 			}
 			LEDxBuzzer(); //LED and Buzzer action
@@ -109,6 +115,9 @@ void Chicken(void){
 				LCD_sendString(buffer);
 				wait_secs(1);
 				wait_ms(40);
+				while(DIO_u8ReadPin('D', 7) == 0){
+					wait_secs(1);
+				}
 				LCD_clearScreen();
 			}
 			LEDxBuzzer(); //LED and Buzzer action
@@ -210,6 +219,9 @@ void CookingTime(void){
 				LCD_sendString(buffer);
 				wait_secs(1);
 				wait_ms(40);
+				while(DIO_u8ReadPin('D', 7) == 0){
+							wait_secs(1);
+				}
 				LCD_clearScreen();
 			}
 			LEDxBuzzer(); //LED and Buzzer action
@@ -259,7 +271,7 @@ static int isAllowed1(unsigned char c){
 }
 
 static void LEDxBuzzer(){
-	DIO_vWritePin('D', 7, 1); //Buzzer ON
+	DIO_vWritePin('D', 3, 1); //Buzzer ON
 	
 	DIO_vWritePin('D', 6, 0); //LED is OFF
 	wait_ms(150);
@@ -275,5 +287,5 @@ static void LEDxBuzzer(){
 	wait_ms(150);
 	DIO_vWritePin('D', 6, 0); //LED is OFF
 	
-	DIO_vWritePin('D', 7, 0); //Buzzer OFF
+	DIO_vWritePin('D', 3, 0); //Buzzer OFF
 }

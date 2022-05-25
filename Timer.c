@@ -3,9 +3,6 @@
 #include "DIO.h"
 #include "Timer.h"
 
-#define S3port 'D'
-#define S3pin 7
-
 
 void timerInit(){
 	NVIC_ST_CTRL_R = 0;
@@ -29,9 +26,7 @@ void wait_1ms(){
 void wait_secs(uint32_t secs){
 	uint32_t i;
 	for(i=0; i<secs; i++) {
-		while(DIO_u8ReadPin(S3port, S3pin) == 0){
-
-		}
+		//while(DIO_u8ReadPin(S3port, S3pin) == 0){}
 		wait_1sec();
 	}
 }
@@ -40,9 +35,7 @@ void wait_secs(uint32_t secs){
 void wait_ms(uint32_t ms){
 	uint32_t i;
 	for(i=0; i<ms; i++) {
-		while(DIO_u8ReadPin(S3port, S3pin) == 0){
-
-		}
+		//while(DIO_u8ReadPin(S3port, S3pin) == 0){}
 		wait_1ms();
 	}
 }
