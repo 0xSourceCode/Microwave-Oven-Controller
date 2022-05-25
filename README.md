@@ -51,8 +51,7 @@ we have known that the **LCD functions** will be used a lot in the project, so w
 
 - [LCD_moveCursor](https://github.com/At0m77/Microwave-Oven-Controller/blob/e86ce6fc958a09a00950c7df400fb972cf7ba180/LCD.c#L63) sets the cursor in the selected position on the LCD
 
-## 2. Timer
-In [Timer.c](https://github.com/At0m77/Microwave-Oven-Controller/blob/e86ce6fc958a09a00950c7df400fb972cf7ba180/Timer.c) Instead of using meaningless delay such as looping in an empty loop, we have used the systick timer, giving us the choice from choosing between 2 modes in counting [wait_secs](https://github.com/At0m77/Microwave-Oven-Controller/blob/e86ce6fc958a09a00950c7df400fb972cf7ba180/Timer.c#L29) for seconds, and [wait_ms](https://github.com/At0m77/Microwave-Oven-Controller/blob/e86ce6fc958a09a00950c7df400fb972cf7ba180/Timer.c#L40) for milliseconds, and of course the number of counts in the selected mode.
+
 
 ## 3. Helper function
 we made some helper files and function to make the code reuseable and readable. so our code became nothing more than a set of functions that call each other<sup id="a2">[2](#f2)</sup>. We can summarize as following:
