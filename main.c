@@ -33,7 +33,9 @@ int main(){
 
 
 	while(1){
-		goto checkDoor;
+		if(DIO_u8ReadPin(S3prot, S3pin) == 0){
+			goto checkDoor;
+		}
 		doorIsClosed:
 			if(keypad_read() != 0xFF) {
 				button = keypad_read();
