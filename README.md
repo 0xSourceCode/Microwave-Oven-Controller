@@ -25,7 +25,7 @@ In this project, we used **Tiva™ C Series TM4C123G LaunchPad** in order to dev
 
 in the first step, our goal was only to display a sequence of **ASCII** characters on the LCD, with the full control of it's position.
 
-In [LCD_Functions.c](https://github.com/At0m77/Microwave-Oven-Controller/blob/main/LCD.c) we started by initializing the used pins from *PORT B* and *PORT F*
+In [LCD.c](https://github.com/At0m77/Microwave-Oven-Controller/blob/main/LCD.c) we started by initializing the used pins from *PORT B* and *PORT F*
 
 we have known that the **LCD functions** will be used a lot in the project, so we needed to make the code reuseable and readable. so we followed the functional programming paradigm, so our code became nothing more than a set of functions that call each other<sup id="a2">[2](#f2)</sup>, we can summarize as following
 
