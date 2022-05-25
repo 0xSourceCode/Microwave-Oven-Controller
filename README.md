@@ -85,6 +85,6 @@ The main Parsing process was implemented in [cookingModes.c](https://github.com/
 
 
 # Footnotes
-<sup><b id="f1">1</b> The functionality of Microwave Oven Controller for the time being duo to problems with intrrupts, but we will fix it as soon as possible[↩](#a1)</sup>
+<sup><b id="f1">1</b> The functionality of Microwave Oven Controller is limited for the time being duo to problems with intrrupts, but we will fix it as soon as possible[↩](#a1)</sup>
 
 <sup><b id="f2">2</b> The implementation of many functions is nothing more than just calling another functions. [↩](#a2)</sup>
