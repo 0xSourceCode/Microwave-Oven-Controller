@@ -12,6 +12,10 @@
 #include "LCD.h"
 #include "cookingModes.h"
 
+
+#define S3prot 'D'
+#define S3pin 7
+
 int main(){
 
 	char button;
